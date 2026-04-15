@@ -101,7 +101,7 @@ settingsBtn.addEventListener("click", function () {
   settings.style.display = "none";
 });
 
-
+let timeChallenge = 5;
 
 settingsForm.addEventListener("change", function () {
   let diff = difficultySelect.value;
