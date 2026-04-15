@@ -91,8 +91,8 @@ function updateTime() {
 }
 
 function gameOver() {
-    endgameEl.innerHTML = `<p>Game Over, Start Again..!</p> <br> <button class="restart-btn" onclick="location.reload()">Restart</button>`;
-    endgameEl.style.display = "flex"; 
+  endgameEl.innerHTML = `<p>Game Over, Start Again..!</p> <br> <button class="restart-btn" onclick="location.reload()">Restart</button>`;
+  endgameEl.style.display = "flex";
 }
 
 // Part 3
@@ -118,22 +118,20 @@ settingsForm.addEventListener("change", function () {
 
 // Second try of doing Part 3 - Add an event listener for the settings form
 
-/* 
-settingsForm.addEventListener("click", function(){
+/* settingsForm.addEventListener("click", function () {
   let diff = difficultySelect.value;
   //console.log(diff);
   const difficultyiIndex = difficultyArray.indexOf(diff);
   //console.log("difficu index " + difficultyiIndex);
-if (difficultyiIndex == 0) {
-  time=15;
-} else if(difficultyiIndex == 1) {
-  time = 10;
-} else if(difficultyiIndex == 2) {
- time = 7;
-} else {
-
-}
-})
- */
+  if (difficultyiIndex === 0) {
+    time = 15;
+  } else if (difficultyiIndex === 1) {
+    time = 10;
+  } else if (difficultyiIndex === 2) {
+    time = 7;
+  } else {
+    alert("Not supported");
+  }
+}); */
 
 addWordToDOM();
