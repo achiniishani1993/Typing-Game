@@ -32,7 +32,6 @@ const words = [
   "north",
 ];
 
-
 //Initializing word
 let randomWord;
 
@@ -42,6 +41,7 @@ let score = 0;
 //Initializing time
 let time = 10;
 
+// Random Item From an Array
 
 function addWordToDOM(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -52,4 +52,13 @@ function addWordToDOM(arr) {
 randomWord = addWordToDOM(words);
 
 word.textContent = randomWord;
+
+
+// increment score by +1
+
+function updateScore(score){
+ return score ++
+}
+
+scoreEl.innerHTML = score;
 
