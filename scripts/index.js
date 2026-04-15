@@ -43,22 +43,32 @@ let time = 10;
 
 // Random Item From an Array
 
-function addWordToDOM(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  const item = arr[randomIndex];
-  return item;
+function addWordToDOM() {
+  const randomIndex = Math.floor(Math.random() * words.length);
+  randomWord = words[randomIndex];
+  
+  word.textContent = randomWord;
 }
-
-randomWord = addWordToDOM(words);
-
-word.textContent = randomWord;
-
 
 // increment score by +1
 
-function updateScore(score){
- return score ++
+function updateScore(){
+ score++
+
+ scoreEl.innerHTML = score;
 }
 
-scoreEl.innerHTML = score;
+// Add an event listener to the ”text” element
 
+text.addEventListener("input", function (e){
+  const inputText = this.value;
+
+  if (inputText === randomWord) {
+    updateScore();
+    addWordToDOM();
+    time += 5;
+    this.value = "";
+  }
+});
+
+addWordToDOM();
