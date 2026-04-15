@@ -32,6 +32,8 @@ const words = [
   "north",
 ];
 
+// const difficultyArray = ["easy", "medium", "hard"];
+
 //Initializing word
 let randomWord;
 
@@ -46,21 +48,21 @@ let time = 10;
 function addWordToDOM() {
   const randomIndex = Math.floor(Math.random() * words.length);
   randomWord = words[randomIndex];
-  
+
   word.textContent = randomWord;
 }
 
 // increment score by +1
 
-function updateScore(){
- score++
+function updateScore() {
+  score++;
 
- scoreEl.innerHTML = score;
+  scoreEl.innerHTML = score;
 }
 
 // Add an event listener to the ”text” element
 
-text.addEventListener("input", function (e){
+text.addEventListener("input", function (e) {
   const inputText = this.value;
 
   if (inputText === randomWord) {
@@ -71,30 +73,67 @@ text.addEventListener("input", function (e){
   }
 });
 
-
 // Part 2 - time set up
 
-const timeInterval = setInterval(updateTime , 1000);
+const timeInterval = setInterval(updateTime, 1000);
 
-
-function  updateTime(){
-  time--;
-  timeEl.innerHTML = time;
-
-  if (time === 0){
+function updateTime() {
+  if (time <= 0) {
+    time = 0;
+    timeEl.innerHTML = time;
     clearInterval(timeInterval);
     gameOver();
+    return;
   }
 
+  time--;
+  timeEl.innerHTML = time;
 }
 
-function gameOver(){
-  if (time === 0){
-    endgameEl.innerHTML = "Game Over, Start Again..!"
-    endgameEl.style.display = "flex";
+function gameOver() {
+    endgameEl.innerHTML = `<p>Game Over, Start Again..!</p> <br> <button class="restart-btn" onclick="location.reload()">Restart</button>`;
+    endgameEl.style.display = "flex"; 
+}
+
+// Part 3
+
+settingsBtn.addEventListener("click", function () {
+  settings.style.display = "none";
+});
+
+
+
+settingsForm.addEventListener("change", function () {
+  let diff = difficultySelect.value;
+  //console.log( difficultySelect.value)
+  if (diff === "easy") {
+    time = 15;
+  } else if (diff === "medium") {
+    time = 10;
+  } else {
+    time = 7;
   }
-}
+  timeEl.innerHTML = time;
+});
 
+// Second try of doing Part 3 - Add an event listener for the settings form
+
+/* 
+settingsForm.addEventListener("click", function(){
+  let diff = difficultySelect.value;
+  //console.log(diff);
+  const difficultyiIndex = difficultyArray.indexOf(diff);
+  //console.log("difficu index " + difficultyiIndex);
+if (difficultyiIndex == 0) {
+  time=15;
+} else if(difficultyiIndex == 1) {
+  time = 10;
+} else if(difficultyiIndex == 2) {
+ time = 7;
+} else {
+
+}
+})
+ */
 
 addWordToDOM();
-

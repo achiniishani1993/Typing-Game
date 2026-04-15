@@ -128,3 +128,17 @@ input {
   height: 100%;
   z-index: 1;
 }
+
+.restart-btn {
+  padding: 10px 20px;
+  background-color: #e3cb15;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.restart-btn:hover {
+  background-color: #eded77;
+}
