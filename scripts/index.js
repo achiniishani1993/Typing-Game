@@ -71,4 +71,30 @@ text.addEventListener("input", function (e){
   }
 });
 
+
+// Part 2 - time set up
+
+const timeInterval = setInterval(updateTime , 1000);
+
+
+function  updateTime(){
+  time--;
+  timeEl.innerHTML = time;
+
+  if (time === 0){
+    clearInterval(timeInterval);
+    gameOver();
+  }
+
+}
+
+function gameOver(){
+  if (time === 0){
+    endgameEl.innerHTML = "Game Over, Start Again..!"
+    endgameEl.style.display = "flex";
+  }
+}
+
+
 addWordToDOM();
+
